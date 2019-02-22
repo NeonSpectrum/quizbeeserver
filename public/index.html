@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <input type="text" name="chatbox">
+  <button type="submit">Submit</button> -->
+  <button id="previous" disabled>Previous</button>&nbsp;
+  <button id="next">Next</button>
+  <div id="show"></div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var index = 0;
+  var questions = null;
+  var socket = io();
+
+  socket.on("connect", function(){
+    $("body").append("<li>" +  + "</li>")
+  })
+</script>
+</body>
+</html>
