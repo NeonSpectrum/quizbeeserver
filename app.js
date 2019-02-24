@@ -29,6 +29,10 @@ server.listen((port = process.env.PORT || 3000), async () => {
 
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
+app.use((req, res, next) => {
+  if (db != null) next()
+  else res.send('Database is not connected.')
+})
 
 app.get('/rooms', async function(req, res) {
   const list = io.sockets.adapter.rooms || {}
