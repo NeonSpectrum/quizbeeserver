@@ -204,9 +204,11 @@ async function connect() {
     : `mongodb://${DB_HOST}/${DB_NAME}`
 
   try {
-    db = await MongoClient.connect(url, {
+    const client = await MongoClient.connect(url, {
       useNewUrlParser: true
     })
+
+    db = client.db(DB_NAME)
     console.log('Connected successfully to database')
   } catch (err) {
     console.log('Error connecting to database.' + err)
